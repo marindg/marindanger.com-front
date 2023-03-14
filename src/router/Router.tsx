@@ -14,11 +14,9 @@ import {
 const Router = () => {
 	return (
 		<BrowserRouter>
-			<div className="relative z-0 primary-bg-gradient">
-				<div className="bg-gradient">
-					<Navbar />
-					<Home />
-				</div>
+			<div className="relative z-0 bg-gradient ">
+				<Navbar />
+				<Home />
 				<About />
 				<Skill />
 				<Experience />
