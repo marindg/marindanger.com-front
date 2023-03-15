@@ -5,6 +5,8 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+import { CosmonautCanvas } from "../components/canvas";
+
 const Contact = () => {
 	const formRef = useRef();
 	const [form, setForm] = useState({
@@ -88,7 +90,7 @@ const Contact = () => {
 					</button>
 				</form>
 			</motion.div>
-
+			<CosmonautCanvas />
 			<motion.div
 				variants={slideIn("right", "tween", 0.2, 1)}
 				className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
