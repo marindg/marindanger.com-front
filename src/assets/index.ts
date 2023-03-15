@@ -28,6 +28,8 @@ import shopify from "./pictures/experiences/shopify.png";
 import starbucks from "./pictures/experiences/starbucks.png";
 import tesla from "./pictures/experiences/tesla.png";
 
+import github from "./pictures/github.png";
+
 export {
 	logo,
 	resume,
@@ -54,4 +56,5 @@ export {
 	shopify,
 	starbucks,
 	tesla,
+	github,
 };
