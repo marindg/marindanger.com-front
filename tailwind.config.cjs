@@ -9,6 +9,11 @@ module.exports = {
 				secondary: "rgba(57, 159, 210, 1)",
 				tertiary: "rgba(225, 235, 251, 1)",
 				bluedark: "rgba(45, 56, 138, 1)",
+				greylight: "rgba(43, 57, 62, 1)",
+			},
+			boxShadow: {
+				nav: "0px 5px 15px 0px rgba(0, 0, 0, 0.7)",
+				card: "0px 35px 120px -15px #211e35",
 			},
 		},
 	},
