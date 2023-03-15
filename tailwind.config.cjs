@@ -14,7 +14,8 @@ module.exports = {
 			boxShadow: {
 				nav: "0px 5px 15px 0px rgba(0, 0, 0, 0.7)",
 				navMobile: "-5px 5px 15px 0px rgba(0, 0, 0, 0.7);",
-				card: "0px 35px 120px -15px #211e35",
+				card: "0px 35px 120px -15px rgba(0, 0, 0, 0.7)",
+				cardBlue: "0px 35px 120px -15px rgba(0, 0, 35, 0.7)",
 			},
 		},
 	},
