@@ -14,6 +14,10 @@ import CanvasLoader from "./Loader";
 const Ball = (props: any) => {
 	const [decal] = useTexture([props.imgUrl]);
 
+	// const geometry = new THREE.SphereGeometry(15, 32, 16);
+	// const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+	// const sphere = new THREE.Mesh(geometry, material);
+
 	return (
 		<Float
 			speed={1.75}
@@ -92,12 +96,12 @@ const Ball = (props: any) => {
 			removeEventListener={undefined}
 			dispatchEvent={undefined}
 		>
-			<ambientLight intensity={0.25} />
+			<ambientLight intensity={1} />
 			<directionalLight position={[0, 0, 0.05]} />
-			<mesh castShadow receiveShadow scale={2.75}>
-				<icosahedronGeometry args={[1, 1]} />
+			<mesh castShadow receiveShadow scale={2.8}>
+				<icosahedronGeometry args={[1, 11]} />
 				<meshStandardMaterial
-					color="#fff8eb"
+					color="rgba(0, 0, 35, 1)"
 					polygonOffset
 					polygonOffsetFactor={-5}
 					flatShading
@@ -105,7 +109,7 @@ const Ball = (props: any) => {
 				<Decal
 					position={[0, 0, 1]}
 					rotation={[2 * Math.PI, 0, 6.25]}
-					scale={1}
+					scale={1.15}
 					map={decal}
 					flatShading
 				/>

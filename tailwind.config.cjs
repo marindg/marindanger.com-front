@@ -18,6 +18,10 @@ module.exports = {
 				cardBlue: "0px 35px 120px -15px rgba(0, 0, 35, 0.7)",
 			},
 		},
+
+		fontFamily: {
+			fira: ["FiraRegular", "FiraLight", "FiraMedium", "FiraSemiBold"],
+		},
 	},
 	plugins: [],
 };

@@ -11,8 +11,24 @@
 	src: url("./assets/fonts/SFMono/SFMono-Regular.ttf");
 }
 @font-face {
-	font-family: "SFMono-Semibold";
-	src: url("./assets/fonts/SFMono/SFMono-Semibold.ttf");
+	font-family: "SFMono";
+	src: url("./assets/fonts/FiraCode/FiraCode-Bold.ttf");
+}
+@font-face {
+	font-family: "FiraLight";
+	src: url("./assets/fonts/FiraCode/FiraCode-Light.ttf");
+}
+@font-face {
+	font-family: "FiraMedium";
+	src: url("./assets/fonts/FiraCode/FiraCode-Medium.ttf");
+}
+@font-face {
+	font-family: "FiraRegular";
+	src: url("./assets/fonts/FiraCode/FiraCode-Regular.ttf");
+}
+@font-face {
+	font-family: "FiraSemiBold";
+	src: url("./assets/fonts/FiraCode/FiraCode-SemiBold.ttf");
 }
 
 :root {
