@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import logo from "../assets/logo/logo.svg";
-import { Burger, Resume } from "../components";
+import { Burger, Resume, Navlink } from "../components";
 
-type navLinkProps = {
+export type navLinkProps = {
 	id: number;
 	text: string;
 	link: string;
@@ -13,10 +13,10 @@ type navLinkProps = {
 
 const navLinks: navLinkProps[] = [
 	{ id: 1, text: "Accueil", link: "home" },
-	{ id: 2, text: "A propos", link: "home" },
-	{ id: 3, text: "Experiences", link: "home" },
-	{ id: 4, text: "Projets", link: "home" },
-	{ id: 5, text: "Me contacter", link: "home" },
+	{ id: 2, text: "A propos", link: "about" },
+	{ id: 3, text: "Experiences", link: "experience" },
+	{ id: 4, text: "Projets", link: "project" },
+	{ id: 5, text: "Me contacter", link: "contact" },
 ];
 
 const Navbar = () => {
@@ -52,7 +52,7 @@ const Navbar = () => {
 								} hover:text-white text-[18px] font-medium cursor-pointer`}
 								onClick={() => setActive(link.text)}
 							>
-								<a href={`#${link.link}`}>{link.text}</a>
+								<Navlink navLinkProps={link} activeLink={active} />
 							</li>
 						);
 					})}
@@ -92,7 +92,7 @@ const Navbar = () => {
 											setActive(link.text);
 										}}
 									>
-										<a href={`#${link.link}`}>{link.text}</a>
+										<Navlink navLinkProps={link} activeLink={active} />
 									</li>
 								);
 							})}
