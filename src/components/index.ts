@@ -1,4 +1,4 @@
-import burger from "./burger/Burger";
-import close from "./close/Close";
+import Burger from "./burger/Burger";
+import Resume from "./resume/Resume";
 
-export { burger, close };
+export { Burger, Resume };

@@ -1,3 +1,5 @@
+import "./burgerStyle.css";
+
 interface burgerProps extends React.HTMLAttributes<HTMLDivElement> {
 	open: boolean;
 }

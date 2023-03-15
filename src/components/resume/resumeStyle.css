@@ -1,0 +1,44 @@
+.resume_button {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	/* border: 2px solid var(--text-blue); */
+	border: 2px solid var(--color-secondary);
+	border-radius: 10px;
+	padding: 0.7em 1em;
+	cursor: pointer;
+	font-size: 1em;
+	font-family: "SFMono-Regular";
+	font-weight: 800;
+	max-width: 12em;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+.resume_button .resume_text {
+	position: relative;
+	color: transparent;
+	background-color: var(--color-tertiary);
+	-webkit-background-clip: text;
+	background-clip: text;
+	transition: background-position 900ms;
+}
+
+.resume_button::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	border-radius: 8px;
+	height: 100%;
+	background: rgba(0, 174, 239, 0.2);
+	transform-origin: 0 0;
+	transform: scale3d(1, 0, 1);
+	transition: transform 800ms;
+}
+
+.resume_button:hover::before {
+	transform-origin: 0 100%;
+	transform: scale3d(1, 1, 1);
+}

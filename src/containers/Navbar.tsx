@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import logo from "../assets/logo/logo.svg";
-import { burger, close } from "../components";
+import { Burger, Resume } from "../components";
 
 type navLinkProps = {
 	id: number;
@@ -56,19 +56,28 @@ const Navbar = () => {
 							</li>
 						);
 					})}
+					<Resume />
 				</ul>
 
 				<div className="sm:hidden flex flex-1 justify-end items-center">
-					<img
+					{/* <img
 						src={toggle ? close : burger}
 						alt="menu"
 						className="w-[28px] h-[28px] object-contain cursor-pointer"
 						onClick={() => setToggle(!toggle)}
-					/>
-					<div
+					/> */}
+
+					<Burger open={toggle} onClick={() => setToggle(!toggle)} />
+
+					{/* <div
 						className={`${
 							!toggle ? "hidden" : "flex"
 						} p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+					> */}
+					<div
+						className={`${
+							!toggle ? "hidden" : "flex"
+						} p-6 justify-start items-center bg-greylight shadow-navMobile absolute top-0 right-0 mx-0 my-0 min-w-[200px] max-w-[250px] h-screen z-10 `}
 					>
 						<ul className="list-none flex justify-end items-start flex-col gap-4">
 							{navLinks.map((link: navLinkProps, i: number) => {
@@ -87,6 +96,7 @@ const Navbar = () => {
 									</li>
 								);
 							})}
+							<Resume />
 						</ul>
 					</div>
 				</div>

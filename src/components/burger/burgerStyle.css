@@ -1,0 +1,44 @@
+#burger_parent {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	width: 5em;
+	z-index: 12;
+}
+
+#burger_parent span {
+	position: relative;
+	height: 5px;
+	width: 3em;
+	background: linear-gradient(90deg, #2d388a 0%, #00aeef 100%);
+	border-radius: 9px;
+	opacity: 1;
+	margin: 5px;
+	transition: 0.25s ease-in-out;
+	transform-origin: left center;
+}
+
+#burger_parent.open span {
+	width: calc(3em - 5px);
+}
+
+#burger_parent.open span:nth-child(1) {
+	transform: rotate(45deg);
+}
+
+#burger_parent.open span:nth-child(2) {
+	width: 0%;
+	opacity: 0;
+}
+
+#burger_parent.open span:nth-child(3) {
+	transform: rotate(-45deg);
+}
+
+@media (min-width: 768px) {
+	#burger_parent {
+		display: none;
+	}
+}

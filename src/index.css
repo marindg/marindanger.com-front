@@ -20,6 +20,9 @@
 	--grey-light: rgba(43, 57, 62, 1);
 	--blue-dark: rgba(45, 56, 138, 1);
 	--blue-light: rgba(0, 174, 239, 1);
+	--color-primary: rgba(71, 109, 129, 1);
+	--color-secondary: rgba(57, 159, 210, 1);
+	--color-tertiary: rgba(225, 235, 251, 1);
 }
 * {
 	margin: 0;
