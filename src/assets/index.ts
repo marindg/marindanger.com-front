@@ -23,6 +23,11 @@ import tailwind from "./pictures/skills/tailwind.png";
 import threejs from "./pictures/skills/threejs.svg";
 import typescript from "./pictures/skills/typescript.png";
 
+import meta from "./pictures/experiences/meta.png";
+import shopify from "./pictures/experiences/shopify.png";
+import starbucks from "./pictures/experiences/starbucks.png";
+import tesla from "./pictures/experiences/tesla.png";
+
 export {
 	logo,
 	resume,
@@ -45,4 +50,8 @@ export {
 	tailwind,
 	threejs,
 	typescript,
+	meta,
+	shopify,
+	starbucks,
+	tesla,
 };
