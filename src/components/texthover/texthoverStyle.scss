@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+.word {
+	transition: opacity 0.2s ease-in-out;
+	white-space: nowrap;
+}
+
+.letter {
+	display: inline-block;
+	transition: transform 0.2s ease-in-out;
+	transform: translate(calc(var(--x, 0) * 1%), calc(var(--y, 0) * 1%))
+		rotate(calc(var(--r, 0) * 1deg)) scale(var(--s, 1));
+}
+
+.jobdispo {
+	font-family: Rubik, serif !important;
+	animation: pulse 1s 2;
+	box-shadow: 0px 35px 120px -15px rgba(0, 0, 0, 0.7);
+	background-image: radial-gradient(
+			circle at center center,
+			transparent,
+			rgb(33, 33, 33)
+		),
+		repeating-linear-gradient(
+			135deg,
+			rgb(33, 33, 33) 0px,
+			rgb(33, 33, 33) 2px,
+			transparent 2px,
+			transparent 10px,
+			rgb(33, 33, 33) 10px,
+			rgb(33, 33, 33) 11px,
+			transparent 11px,
+			transparent 21px
+		),
+		repeating-linear-gradient(
+			45deg,
+			rgb(47, 47, 47) 0px,
+			rgb(47, 47, 47) 4px,
+			transparent 4px,
+			transparent 8px
+		),
+		linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+	border-radius: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 1em 0;
+	color: var(--color-tertiary);
+
+	&:hover .word {
+		opacity: 0.25;
+
+		&:hover {
+			opacity: 1;
+
+			.letter {
+				&::before {
+					animation: wobble 0.3s infinite;
+				}
+			}
+
+			@for $i from 1 through 12 {
+				.letter:nth-child(#{$i}) {
+					--x: #{random(50) - 25};
+					--y: #{random(50) - 25};
+					--r: #{random(50) - 25};
+					&:hover {
+						z-index: 2;
+						text-shadow: 2px 2px 10px rgba(0, 0, 0);
+						--x: #{random(20) - 10};
+						--y: #{random(20) - 10};
+						--r: #{random(20) - 10};
+						--s: 1.25;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1) rotate(25deg);
+	}
+
+	50% {
+		transform: scale3d(1.25, 1.25, 1.25) rotate(25deg);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1) rotate(25deg);
+	}
+}

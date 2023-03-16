@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
+import { Texthover } from "../components";
 
 const Home = () => {
 	return (
@@ -19,6 +20,13 @@ const Home = () => {
 						Developpeur fullstack.
 					</p>
 				</div>
+			</div>
+
+			<div>
+				<Texthover
+					text="Actuellement disponible pour travailler !"
+					className="jobdispo sm:text-4xl text-2xl absolute sm:top-1/4 top-1/2 sm:right-40 right-20 sm:w-[25%] w-[60%] rotate-[25deg]"
+				/>
 			</div>
 
 			<div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
