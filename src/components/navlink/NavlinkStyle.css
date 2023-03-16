@@ -1,10 +1,6 @@
 .link {
 	position: relative;
-	font-family: "SFMono-Regular";
-	font-size: 14px;
 	cursor: pointer;
-	color: var(--text-blue);
-	padding-top: 3em;
 	width: max-content;
 	display: inline-block;
 	white-space: nowrap;
@@ -33,30 +29,4 @@
 .section-active {
 	font-weight: 800;
 	color: var(--text-white) !important;
-}
-
-@media (min-width: 768px) {
-	.link {
-		font-size: 16px;
-		padding-top: 0;
-		margin-right: 1em;
-	}
-
-	.link:last-child {
-		margin-bottom: 0;
-	}
-
-	.link-text::after {
-		height: 3px;
-	}
-}
-@media (min-width: 1024px) {
-	.link {
-		font-size: 19px;
-		margin-right: 3em;
-	}
-}
-@media (min-width: 1440px) {
-}
-@media (min-width: 2560px) {
 }

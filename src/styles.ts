@@ -1,6 +1,6 @@
 const styles = {
-	paddingX: "sm:px-16 px-6",
-	paddingY: "sm:py-16 py-6",
+	paddingX: "xl:px-16 sm:px-7 px-6",
+	paddingY: "xl:px-16 sm:px-7 px-6",
 	padding: "sm:px-16 px-6 sm:py-16 py-10",
 
 	homeHeadText:

@@ -30,6 +30,8 @@ import tesla from "./pictures/experiences/tesla.png";
 
 import github from "./pictures/github.png";
 
+import useOnClickOutside from "./hooks/useOnClickOutside";
+
 export {
 	logo,
 	resume,
@@ -57,4 +59,5 @@ export {
 	starbucks,
 	tesla,
 	github,
+	useOnClickOutside,
 };
