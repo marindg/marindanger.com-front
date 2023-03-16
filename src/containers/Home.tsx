@@ -2,89 +2,57 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { Texthover } from "../components";
 import { homeSubText } from "../constants";
-import React from "react";
-
-const SubText: React.FC = () => {
-	homeSubText.split("").forEach((letter: String, index: number) => {
-		return (
-			<React.Fragment>
-				<span
-					className="loader_letter animate-[flash_10s_linear_infinite]"
-					key={index}
-					style={{ animationDelay: `0.${index}s` }}
-				>
-					{letter}
-				</span>
-			</React.Fragment>
-		);
-	});
-
-	// for (let i = 0; i < homeSubText.length; i++) {
-	// 	console.log(homeSubText.length);
-	// 	return (
-	// 		<React.Fragment>
-	// 			<span
-	// 				className="loader_letter animate-[flash_10s_linear_infinite]"
-	// 				key={i}
-	// 				style={{ animationDelay: `0.${i}s` }}
-	// 			>
-	// 				{homeSubText[i]}
-	// 			</span>
-	// 		</React.Fragment>
-	// 	);
-	// }
-};
+import { useEffect, useState } from "react";
 
 const Home = () => {
+	const [isScrollVisible, setIsScrollVisible] = useState(true);
+
 	const handleClick = (link: string) => {
 		window.open(link, "_blank");
 	};
 
-	const homeSubTextWord = homeSubText.trim().split(" ");
+	useEffect(() => {
+		setTimeout(() => {
+			setIsScrollVisible(false);
+		}, 5000);
+	}, []);
 
-	// const getSpan = (word: string) => {
-	// 	const letters = word.split("");
-
-	// 	return letters.map((letter: string, index: number) => {
-	// 		return (
-	// 			<span
-	// 				className="loader_letter animate-[flash_10s_linear_infinite]"
-	// 				key={index}
-	// 				style={{ animationDelay: `0.${index}s` }}
-	// 			>
-	// 				{letter}
-	// 			</span>
-	// 		);
-	// 	});
-	// };
+	const onOverSection = () => {
+		setIsScrollVisible(true);
+		setTimeout(() => {
+			setIsScrollVisible(false);
+		}, 5000);
+	};
 
 	return (
-		<section id="home" className="relative w-full h-screen mx-auto">
+		<section
+			id="home"
+			className="relative w-full h-screen mx-auto overflow-hidden"
+		>
 			<div
 				className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7x1 mx-auto flex flex-row items-start gap-5`}
+				onMouseOver={() => onOverSection()}
 			>
 				<div className="flex flex-col justify-center items-center mt-5">
 					<div className="w-5 h-5 rounded-full bg-bluedark" />
 					<div className="w-1 sm:h-80 h-40 blue-gradient-down" />
 				</div>
 				<div>
-					<h1 className={`${styles.homeHeadText} text-tertiary`}>
-						Bonjour, je suis{" "}
+					<h1
+						className={`${styles.homeHeadText} text-tertiary font-bold font-calibre`}
+					>
+						Bienvenue, je suis&nbsp;
 						<span
-							className="cursor-pointer"
-							onClick={() =>
-								handleClick(
-									"https://fr.wikipedia.org/wiki/Marin_%28profession%29#"
-								)
-							}
+							className="cursor-pointer whitespace-nowrap"
+							onClick={() => handleClick("https://marindanger.com")}
 						>
-							<span className="text-bluedark">M</span>
-							<span className="text-bluedark">a</span>
-							<span className="text-bluedark">r</span>
+							<span className="text-secondary">M</span>
+							<span className="text-secondary">a</span>
+							<span className="text-secondary">r</span>
 							<span className="text-[red] before:content-['ı'] before:absolute before:text-tertiary">
 								i
 							</span>
-							<span className="text-bluedark">n</span>
+							<span className="text-secondary">n</span>
 						</span>
 						.
 					</h1>
@@ -120,29 +88,32 @@ const Home = () => {
 							})}
 					</p>
 				</div>
-			</div>
 
-			<div>
 				<Texthover
 					text="Actuellement disponible pour travailler !"
-					className="jobdispo font-fira sm:text-4xl text-2xl absolute sm:top-1/4 top-1/2 sm:right-40 right-20 sm:w-[25%] w-[60%] rotate-[25deg]"
+					className="jobdispo font-fira sm:text-4xl text-2xl absolute rotate-[25deg] top-1/2 w-2/3 max-w-sm left-1/4 "
 				/>
 			</div>
-			<div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-				<a href="#about">
-					<div className="w-[35px] h-[64px] rounded-3xl border-4 border-bluedark flex justify-conter items-start p-2">
-						<motion.div
-							animate={{ y: [0, 24, 0] }}
-							transition={{
-								duration: 1.5,
-								repeat: Infinity,
-								repeatType: "loop",
-							}}
-							className="w-3 h-3 rounded-full bg-secondary mb-1"
-						/>
-					</div>
-				</a>
-			</div>
+
+			{isScrollVisible ? (
+				<div className="absolute bottom-10 w-full flex justify-center items-center">
+					<a href="#about">
+						<div className="w-[35px] h-[64px] rounded-3xl border-4 border-bluedark flex justify-conter items-start p-2">
+							<motion.div
+								animate={{ y: [0, 24, 0] }}
+								transition={{
+									duration: 1.5,
+									repeat: Infinity,
+									repeatType: "loop",
+								}}
+								className="w-3 h-3 rounded-full bg-secondary mb-1"
+							/>
+						</div>
+					</a>
+				</div>
+			) : (
+				<></>
+			)}
 		</section>
 	);
 };
