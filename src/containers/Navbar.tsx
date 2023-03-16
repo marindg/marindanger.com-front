@@ -1,11 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import logo from "../assets/logo/logo.svg";
 import { Burger, Resume, Navlink } from "../components";
 
-import { useOnClickOutside } from "../assets";
+import { useOnClickOutside, useScrollspy } from "../assets";
 
 export type navLinkProps = {
 	id: number;
@@ -28,6 +28,17 @@ const Navbar = () => {
 	const activeNavbar = useRef() as React.MutableRefObject<HTMLInputElement>;
 	useOnClickOutside(activeNavbar, () => setToggle(false));
 
+	const activeSection = useScrollspy(
+		navLinks.map((el) => el.link),
+		100
+	);
+
+	useEffect(() => {
+		if (activeSection) {
+			setActive(activeSection);
+		}
+	}, [activeSection]);
+
 	return (
 		<nav
 			className={`${styles.paddingX} w-screen flex items-center py-1 fixed top-0 z-20 bg-greylight shadow-nav`}
@@ -49,9 +60,9 @@ const Navbar = () => {
 							<li
 								key={i}
 								className={`${
-									active === link.text ? "text-white" : "text-secondary"
+									active === link.link ? "text-white" : "text-secondary"
 								} hover:text-white text-[18px] font-medium cursor-pointer`}
-								onClick={() => setActive(link.text)}
+								onClick={() => setActive(link.link)}
 							>
 								<Navlink
 									navLinkProps={link}
@@ -81,11 +92,11 @@ const Navbar = () => {
 									<li
 										key={i}
 										className={`${
-											active === link.text ? "text-tertiary" : "text-secondary"
+											active === link.link ? "text-tertiary" : "text-secondary"
 										}  font-medium cursor-pointer text-[20px]`}
 										onClick={() => {
 											setToggle(!toggle);
-											setActive(link.text);
+											setActive(link.link);
 										}}
 									>
 										<Navlink

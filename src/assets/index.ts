@@ -31,6 +31,7 @@ import tesla from "./pictures/experiences/tesla.png";
 import github from "./pictures/github.png";
 
 import useOnClickOutside from "./hooks/useOnClickOutside";
+import useScrollspy from "./hooks/useScrollspy";
 
 export {
 	logo,
@@ -60,4 +61,5 @@ export {
 	tesla,
 	github,
 	useOnClickOutside,
+	useScrollspy,
 };

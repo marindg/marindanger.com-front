@@ -12,7 +12,11 @@ const TexthoverComponent = (props: texthoverProps) => {
 		const letters = word.split("");
 
 		return letters.map((letter: string, index: number) => {
-			return <span className="letter">{letter}</span>;
+			return (
+				<span className="letter" key={`#letter-${index}`}>
+					{letter}
+				</span>
+			);
 		});
 	};
 
@@ -20,7 +24,7 @@ const TexthoverComponent = (props: texthoverProps) => {
 		<p {...props}>
 			{words.map((word: string, index: number) => {
 				return (
-					<span className="word" key={index}>
+					<span className="word" key={`#word-${index}`}>
 						{getSpan(word)}
 						&nbsp;
 					</span>
