@@ -19,15 +19,15 @@ const Router = () => {
 			<div className="relative z-0 bg-gradient ">
 				<Navbar />
 				<Home />
-				<About />
-				<Skill />
-				<Experience />
-				<Project />
-				<div className="relative z-0">
+				{/* <About /> */}
+				{/* <Skill /> */}
+				{/* <Experience /> */}
+				{/* <Project /> */}
+				{/* <div className="relative z-0">
 					<Contact />
 					<StarsCanvas />
-				</div>
-				<Footer />
+				</div> */}
+				{/* <Footer /> */}
 			</div>
 		</BrowserRouter>
 	);

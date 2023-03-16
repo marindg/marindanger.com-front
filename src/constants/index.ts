@@ -23,6 +23,8 @@ import {
 	tesla,
 } from "../assets";
 
+export const homeSubText = "Developpeur Fullstack.";
+
 export const services = [
 	{
 		text: "Developpeur web client",

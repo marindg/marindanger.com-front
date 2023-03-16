@@ -95,3 +95,16 @@
 		var(--blue-light) 100%
 	);
 }
+
+@keyframes flash {
+	0% {
+		color: var(--color-tertiary);
+	}
+	90% {
+		color: transparent;
+		text-shadow: none;
+	}
+	100% {
+		color: var(--color-tertiary);
+	}
+}
