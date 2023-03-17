@@ -49,7 +49,7 @@ const About = () => {
 					mes compétences et appris de nouveaux langages, j'ai décidé de changer
 					de métier afin de vivre de ma passion qu'est le code.
 				</motion.p>
-				<motion.p
+				<motion.div
 					variants={fadeIn("right", "", 0.1, 0.2)}
 					className="mt-4 w-full flex justify-center"
 				>
@@ -65,10 +65,10 @@ const About = () => {
 							/>
 						</motion.div>
 					</Tilt>
-				</motion.p>
+				</motion.div>
 			</div>
 
-			<div className="mt-20 flex flex-wrap gap-7">
+			<div className="mt-20 flex flex-wrap justify-center gap-7">
 				{services.map((service, index) => {
 					return (
 						<ServiceCard
