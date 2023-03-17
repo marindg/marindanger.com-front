@@ -68,7 +68,6 @@ const Home = () => {
 							.trim()
 							.split("")
 							.map((letter: string, index: number) => {
-								console.log(index);
 								return (
 									<span
 										className="loader_letter"

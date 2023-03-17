@@ -19,7 +19,7 @@ const Router = () => {
 			<div className="relative z-0 bg-gradient ">
 				<Navbar />
 				<Home />
-				{/* <About /> */}
+				<About />
 				{/* <Skill /> */}
 				{/* <Experience /> */}
 				{/* <Project /> */}
