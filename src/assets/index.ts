@@ -33,6 +33,8 @@ import github from "./pictures/github.png";
 import useOnClickOutside from "./hooks/useOnClickOutside";
 import useScrollspy from "./hooks/useScrollspy";
 
+import education from "./svg/education.svg";
+
 export {
 	logo,
 	resume,
@@ -62,4 +64,5 @@ export {
 	github,
 	useOnClickOutside,
 	useScrollspy,
+	education,
 };

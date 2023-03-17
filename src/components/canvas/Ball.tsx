@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 import { Canvas } from "@react-three/fiber";
 import {
@@ -13,10 +13,6 @@ import CanvasLoader from "./Loader";
 
 const Ball = (props: any) => {
 	const [decal] = useTexture([props.imgUrl]);
-
-	// const geometry = new THREE.SphereGeometry(15, 32, 16);
-	// const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-	// const sphere = new THREE.Mesh(geometry, material);
 
 	return (
 		<Float

@@ -20,8 +20,8 @@ const Router = () => {
 				<Navbar />
 				<Home />
 				<About />
-				{/* <Skill /> */}
-				{/* <Experience /> */}
+				<Skill />
+				<Experience />
 				{/* <Project /> */}
 				{/* <div className="relative z-0">
 					<Contact />
