@@ -60,8 +60,8 @@ const Navbar = () => {
 							<li
 								key={i}
 								className={`${
-									active === link.link ? "text-white" : "text-secondary"
-								} hover:text-white text-[18px] font-medium cursor-pointer`}
+									active === link.link ? "text-tertiary" : "text-secondary"
+								} text-[18px] font-medium cursor-pointer`}
 								onClick={() => setActive(link.link)}
 							>
 								<Navlink

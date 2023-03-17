@@ -17,6 +17,8 @@ module.exports = {
 				card: "0px 35px 120px -15px rgba(0, 0, 0, 0.7)",
 				cardBlue: "0px 35px 120px -15px rgba(0, 0, 35, 0.7)",
 				cardLight: "0px 5px 10px -5px rgba(0, 0, 35, 0.7)",
+				cardProject:
+					"0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0)",
 			},
 		},
 

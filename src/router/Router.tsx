@@ -22,7 +22,7 @@ const Router = () => {
 				<About />
 				<Skill />
 				<Experience />
-				{/* <Project /> */}
+				<Project />
 				{/* <div className="relative z-0">
 					<Contact />
 					<StarsCanvas />

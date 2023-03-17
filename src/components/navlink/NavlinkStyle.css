@@ -28,5 +28,5 @@
 
 .section-active {
 	font-weight: 800;
-	color: var(--text-white) !important;
+	color: var(--color-tertiary) !important;
 }
