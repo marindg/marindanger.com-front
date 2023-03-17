@@ -21,6 +21,7 @@ import {
 	shopify,
 	starbucks,
 	tesla,
+	ey,
 } from "../assets";
 
 export const homeSubText = "Developpeur Fullstack.";
@@ -199,17 +200,25 @@ export const projects = [
 
 export const experiences = [
 	{
-		education: false,
-		title: "React.js Developer",
-		company_name: "Starbucks",
+		education: true,
+		title: "Master 2 - ACMP",
+		company_name: "Paris 1 Panthéon-Sorbonne",
 		icon: starbucks,
-		iconBg: "#383E56",
-		date: "March 2020 - April 2021",
+		iconBg: "rgb(45,45,54)",
+		date: "2017",
+		points: [],
+	},
+	{
+		education: false,
+		title: "Senior consultant",
+		company_name: "EY",
+		icon: ey,
+		iconBg: "rgb(45,45,54)",
+		date: "2017 - 2019",
 		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
+			" Audit des systèmes d’information (majeure) : - Examen des risques et du contrôle interne des processus IT ; Réalisation de l'audit de l'environnement informatique métier ; Mise en place de recommandations visant à couvrir les risques identifies ; Formation et supervision de travaux des juniors ",
+			"Audit financier (mineur) : Examen des états financiers ; Formation et supervision de travaux des juniors",
+			"Développement interne (ponctuel) : Mise en place d'outils informatisés permettant de réaliser des suivis et/ou des tâches répétitives (Excel, VBA, ACL), travailler des masses de données (ACL) - Animation de cours d'Excel",
 		],
 	},
 	{
@@ -219,53 +228,15 @@ export const experiences = [
 		icon: starbucks,
 		iconBg: "#383E56",
 		date: "March 2020 - April 2021",
-		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
-		],
+		points: [],
 	},
 	{
 		education: false,
-		title: "React Native Developer",
-		company_name: "Tesla",
-		icon: tesla,
-		iconBg: "#E6DEDD",
+		title: "stagiaire développeur",
+		company_name: "Etherhealth care",
+		icon: "https://res.cloudinary.com/dn6nm16kn/image/upload/v1678149469/marindanger.com/etherHealthcare_pudr7a.png",
+		iconBg: "white",
 		date: "Jan 2021 - Feb 2022",
-		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
-		],
-	},
-	{
-		education: false,
-		title: "Web Developer",
-		company_name: "Shopify",
-		icon: shopify,
-		iconBg: "#383E56",
-		date: "Jan 2022 - Jan 2023",
-		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
-		],
-	},
-	{
-		education: false,
-		title: "Full stack Developer",
-		company_name: "Meta",
-		icon: meta,
-		iconBg: "#E6DEDD",
-		date: "Jan 2023 - Present",
-		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
-		],
+		points: [],
 	},
 ];

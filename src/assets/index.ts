@@ -27,6 +27,7 @@ import meta from "./pictures/experiences/meta.png";
 import shopify from "./pictures/experiences/shopify.png";
 import starbucks from "./pictures/experiences/starbucks.png";
 import tesla from "./pictures/experiences/tesla.png";
+import ey from "./pictures/experiences/ey.png";
 
 import github from "./pictures/github.png";
 
@@ -69,4 +70,5 @@ export {
 	education,
 	paperPlane,
 	loadingSvg,
+	ey,
 };
