@@ -23,11 +23,11 @@ const Router = () => {
 				<Skill />
 				<Experience />
 				<Project />
-				{/* <div className="relative z-0">
+				<div className="relative z-0">
 					<Contact />
 					<StarsCanvas />
-				</div> */}
-				{/* <Footer /> */}
+				</div>
+				<Footer />
 			</div>
 		</BrowserRouter>
 	);

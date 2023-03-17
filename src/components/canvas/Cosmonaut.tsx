@@ -9,8 +9,8 @@ const Cosmonaut = () => {
 	const computer = useGLTF("./cosmonaut/scene.gltf");
 	return (
 		<mesh>
-			<hemisphereLight intensity={0.15} groundColor="black" />
-			<pointLight intensity={1} />
+			<hemisphereLight intensity={0.8} groundColor="black" />
+			<pointLight intensity={0.9} />
 
 			<spotLight
 				position={[-20, 50, 10]}
@@ -22,9 +22,9 @@ const Cosmonaut = () => {
 			/>
 			<primitive
 				object={computer.scene}
-				scale={0.03}
-				position={[0, -4.5, -1.5]}
-				rotation={[-0.01, -0.2, -0.1]}
+				scale={0.65}
+				position={[5, -80, 0]}
+				rotation={[0, 4.5, 0]}
 			/>
 		</mesh>
 	);
@@ -35,14 +35,16 @@ const CosmonautCanvas = () => {
 		<Canvas
 			frameloop="demand"
 			shadows
-			camera={{ position: [20, 3, 5], fov: 25 }}
+			camera={{ position: [-580, 200, 0], fov: 20 }}
 			gl={{ preserveDrawingBuffer: true }}
+			style={{ height: "45vh" }}
 		>
 			<Suspense fallback={<CanvasLoader />}>
 				<OrbitControls
+					autoRotate
 					enableZoom={false}
 					maxPolarAngle={Math.PI / 2}
-					minPolarAngle={Math.PI / 2}
+					// minPolarAngle={Math.PI / 2}
 				/>
 				<Cosmonaut />
 			</Suspense>

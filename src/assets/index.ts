@@ -34,6 +34,8 @@ import useOnClickOutside from "./hooks/useOnClickOutside";
 import useScrollspy from "./hooks/useScrollspy";
 
 import education from "./svg/education.svg";
+import paperPlane from "./svg/paperPlane.svg";
+import loadingSvg from "./svg/loading.svg";
 
 export {
 	logo,
@@ -65,4 +67,6 @@ export {
 	useOnClickOutside,
 	useScrollspy,
 	education,
+	paperPlane,
+	loadingSvg,
 };

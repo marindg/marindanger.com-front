@@ -89,7 +89,8 @@ const Home = () => {
 				</div>
 
 				<Texthover
-					text="Actuellement disponible pour travailler !"
+					// text="Actuellement disponible pour travailler !"
+					text="Version de tests - Version définitive à venir"
 					className="jobdispo font-fira sm:text-4xl text-2xl absolute rotate-[25deg] top-1/2 w-2/3 max-w-sm left-1/4 "
 				/>
 			</div>
