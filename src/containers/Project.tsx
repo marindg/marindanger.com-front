@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
-
+// import { useSelector } from "react-redux";
 import { styles } from "../styles";
-import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = (props: any, index: number) => {
+	// const projectsData = useSelector(
+	// 	(state: any) => state.projectsReducer.Projects.result
+	// );
+
+	// console.log(projectsData);
 	return (
 		<motion.div variants={fadeIn("left", "smooth", index * 5, 0.75)}>
 			<div className="bg-[var(--grey-light)] shadow-cardProject p-5 rounded-2xl sm:w-[360px] w-full max-w-xs min-h-max">
@@ -16,19 +20,6 @@ const ProjectCard = (props: any, index: number) => {
 						alt={`project_image_${props.name}`}
 						className="w-full h-full object-contain"
 					/>
-
-					{/* <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-						<div
-							onClick={() => window.open("https://google.fr", "_blank")}
-							className=" w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-						>
-							<img
-								src={github}
-								alt="source code"
-								className="w-1/2 h-1/2 object-contain"
-							/>
-						</div>
-					</div> */}
 				</div>
 
 				<div className="mt-5">
