@@ -13,7 +13,6 @@ export const getProjectService = () => {
 		},
 		mode: "cors",
 	};
-	console.log(address);
 
 	const request = {
 		address: address,

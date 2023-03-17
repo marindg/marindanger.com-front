@@ -9,7 +9,7 @@ export const getProjectThunk = createAsyncThunk<unknown, void, any>(
 
 		try {
 			const response = await fetch(service.address, service.parameters);
-			console.log(response);
+
 			return await response.json();
 		} catch (e: any) {
 			return rejectWithValue(e);

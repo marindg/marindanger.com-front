@@ -1,5 +1,5 @@
 import Router from "./router/Router";
-
+import { Loader } from "./components";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./state/store";
 import { getProjectThunk } from "./state/thunks";
@@ -11,15 +11,16 @@ const App = () => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
-		dispatch(getProjectThunk());
+		dispatch(getProjectThunk()).then((reponse: any) => {
+			if (reponse.meta.requestStatus === "fulfilled") {
+				setLoadingFetch(false);
+			}
+		});
 
 		// eslint-disable-next-line
 	}, [dispatch]);
 
-	
-
-
-	return <Router />;
+	return loadingFetch ? <Loader /> : <Router />;
 };
 
 export default App;

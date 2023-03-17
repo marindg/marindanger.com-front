@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = (props: any, index: number) => {
-	// const projectsData = useSelector(
-	// 	(state: any) => state.projectsReducer.Projects.result
-	// );
+	const projectsData = useSelector(
+		(state: any) => state.projectsReducer.Projects.result
+	);
 
-	// console.log(projectsData);
+	console.log(projectsData);
 	return (
 		<motion.div variants={fadeIn("left", "smooth", index * 5, 0.75)}>
 			<div className="bg-[var(--grey-light)] shadow-cardProject p-5 rounded-2xl sm:w-[360px] w-full max-w-xs min-h-max">
