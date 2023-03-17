@@ -16,7 +16,6 @@ const App = () => {
 				setLoadingFetch(false);
 			}
 		});
-
 		// eslint-disable-next-line
 	}, [dispatch]);
 
