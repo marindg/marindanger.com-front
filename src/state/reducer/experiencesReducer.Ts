@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { getExperienceThunk } from "../thunks";
 
 export interface IExperience {
-	_id: string;
+	id: string;
 	education: boolean;
 	title: string;
 	company_name: string;
@@ -13,23 +13,26 @@ export interface IExperience {
 	points?: string[];
 }
 
-export interface IExperience {
-	experiences: IExperience[];
-}
-
-export const initialState = {
-	experiences: undefined,
-};
-
 const experiencesSlice = createSlice({
 	name: "experiences",
-	initialState,
+	initialState: [] as IExperience[],
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(
 			getExperienceThunk.fulfilled,
 			(state, { payload }: PayloadAction<any>) => {
-				state.experiences = payload.result;
+				payload.result.forEach((experience: IExperience) => {
+					state.push({
+						id: experience.id,
+						education: experience.education,
+						title: experience.title,
+						company_name: experience.company_name,
+						icon: experience.icon,
+						iconBg: experience.iconBg,
+						date: experience.date,
+						points: experience.points,
+					});
+				});
 			}
 		);
 	},

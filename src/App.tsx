@@ -21,12 +21,10 @@ const App = () => {
 		// setLoadingFetch(false);
 		// }
 		// });
-
-		// dispatch(getProjectThunk());
-		// dispatch(getExperienceThunk());
-		// dispatch(getHomeTextThunk());
+		dispatch(getProjectThunk());
+		dispatch(getExperienceThunk());
+		dispatch(getHomeTextThunk());
 		dispatch(getSkillThunk());
-
 		// eslint-disable-next-line
 	}, [dispatch]);
 

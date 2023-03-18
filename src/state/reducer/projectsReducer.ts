@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { getProjectThunk } from "../thunks/projectsThunk";
 
 export interface IProject {
-	_id: string;
+	id: string;
 	name: string;
 	shortDescription?: string | undefined;
 	longDescription: string;
@@ -12,23 +12,25 @@ export interface IProject {
 	technologies: string[];
 }
 
-export interface IProjects {
-	projects: IProject[] | undefined;
-}
-
-export const initialState = {
-	projects: undefined,
-};
-
 const projectsSlice = createSlice({
 	name: "projects",
-	initialState,
+	initialState: [] as IProject[],
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(
 			getProjectThunk.fulfilled,
 			(state, { payload }: PayloadAction<any>) => {
-				state.projects = payload.result;
+				payload.result.forEach((project: IProject) => {
+					state.push({
+						id: project.id,
+						name: project.name,
+						shortDescription: project.shortDescription,
+						longDescription: project.longDescription,
+						imageUrl: project.imageUrl,
+						date: project.date,
+						technologies: project.technologies,
+					});
+				});
 			}
 		);
 	},

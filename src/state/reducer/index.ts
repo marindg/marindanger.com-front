@@ -7,9 +7,9 @@ import homeText from "../reducer/homeTextReducer";
 
 const appReducer = combineReducers({
 	projects,
-	experiences,
 	skills,
 	homeText,
+	experiences,
 });
 
 const rootReducer = (state: any, action: any) => {

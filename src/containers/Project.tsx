@@ -10,7 +10,7 @@ const ProjectCard = (props: any, index: number) => {
 		(state: any) => state.projectsReducer.Projects.result
 	);
 
-	console.log(projectsData);
+	// console.log(projectsData);
 	return (
 		<motion.div variants={fadeIn("left", "smooth", index * 5, 0.75)}>
 			<div className="bg-[var(--grey-light)] shadow-cardProject p-5 rounded-2xl sm:w-[360px] w-full max-w-xs min-h-max">

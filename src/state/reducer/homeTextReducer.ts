@@ -3,29 +3,24 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { getHomeTextThunk } from "../thunks/homeTextThunk";
 
 export interface IHomeText {
-	homeText: {
-		text: string;
-		visible: boolean;
-	};
+	text: string;
+	visible: boolean;
 }
-
-export const initialState = {
-	homeText: {
-		text: "Actuellement disponible pour travailler !",
-		visible: true,
-	},
-};
 
 const homeTextSlice = createSlice({
 	name: "homeText",
-	initialState,
+	initialState: [] as IHomeText[],
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(
 			getHomeTextThunk.fulfilled,
 			(state, { payload }: PayloadAction<any>) => {
-				console.log(payload);
-				state.homeText = payload.result;
+				payload.result.forEach((message: IHomeText) => {
+					state.push({
+						text: message.text,
+						visible: message.visible,
+					});
+				});
 			}
 		);
 	},
