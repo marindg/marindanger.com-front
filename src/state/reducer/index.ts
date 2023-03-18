@@ -1,15 +1,17 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import projects from "../reducer/projectsReducer";
-import experiences from "../reducer/experiencesReducer";
-import skills from "../reducer/skillsReducer";
-import homeText from "../reducer/homeTextReducer";
+import projects from "./projectsReducer";
+import experiences from "./experiencesReducer";
+import skills from "./skillsReducer";
+import homeText from "./homeTextReducer";
+import loading from "./loadingReducer";
 
 const appReducer = combineReducers({
 	projects,
 	skills,
 	homeText,
 	experiences,
+	loading,
 });
 
 const rootReducer = (state: any, action: any) => {
