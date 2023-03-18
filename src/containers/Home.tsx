@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { Texthover } from "../components";
-import { homeSubText } from "../constants";
+// import { homeSubText } from "../constants";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Home = () => {
 	const [isScrollVisible, setIsScrollVisible] = useState(true);
+
+	const homeTextFetched = useSelector((state: any) => state.homeText);
+
+	const homeSubText: string = homeTextFetched[0].text;
 
 	const handleClick = (link: string) => {
 		window.open(link, "_blank");
@@ -89,8 +94,7 @@ const Home = () => {
 				</div>
 
 				<Texthover
-					// text="Actuellement disponible pour travailler !"
-					text="Version de tests - Version définitive à venir"
+					text={homeSubText}
 					className="jobdispo font-fira sm:text-4xl text-2xl absolute rotate-[25deg] top-1/2 w-2/3 max-w-sm left-1/4 "
 				/>
 			</div>

@@ -2,35 +2,32 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { IProject } from "../state/reducer/projectsReducer";
 
-const ProjectCard = (props: any, index: number) => {
-	const projectsData = useSelector(
-		(state: any) => state.projectsReducer.Projects.result
-	);
-
-	// console.log(projectsData);
+const ProjectCard = (project: IProject, index: number) => {
 	return (
 		<motion.div variants={fadeIn("left", "smooth", index * 5, 0.75)}>
 			<div className="bg-[var(--grey-light)] shadow-cardProject p-5 rounded-2xl sm:w-[360px] w-full max-w-xs min-h-max">
 				<div className="relative w-full h-[150px]">
 					<img
-						src={props.image}
-						alt={`project_image_${props.name}`}
+						src={project.imageUrl}
+						alt={`project_image_${project.name}`}
 						className="w-full h-full object-contain"
 					/>
 				</div>
 
 				<div className="mt-5">
-					<h2 className="text-tertiary font-bold text-[25px]">{props.name}</h2>
+					<h2 className="text-tertiary font-bold text-[25px]">
+						{project.name}
+					</h2>
 					<p className="mt-2 text-secondary text-[14px] leading-6">
-						{props.longDescription}
+						{project.longDescription}
 					</p>
 				</div>
 
 				<div className="mt-4 flex flex-wrap gap-2">
-					{props.technologies.map((el: string, i: number) => (
+					{project.technologies.map((el: string, i: number) => (
 						<p
 							key={i}
 							className={`font-fira text-[12px] text-tertiary rounded-[20px] px-1 py-1 shadow-cardLight `}
@@ -45,6 +42,8 @@ const ProjectCard = (props: any, index: number) => {
 };
 
 const Projects = () => {
+	const projects = useSelector((state: any) => state.projects);
+
 	return (
 		<>
 			<motion.div variants={textVariant(0.2)}>
@@ -62,8 +61,8 @@ const Projects = () => {
 			</div>
 
 			<div className="mt-20 flex flex-wrap gap-7">
-				{projects.map((project, index) => (
-					<ProjectCard key={`project-${index}`} index={index} {...project} />
+				{projects.map((project: IProject, index: number) => (
+					<ProjectCard key={`project-${index}`} {...project} index={index} />
 				))}
 			</div>
 		</>

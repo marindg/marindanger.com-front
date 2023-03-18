@@ -11,7 +11,6 @@ import {
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Actions } from "./state/actions";
-import { experiences } from "./constants";
 
 const App = () => {
 	const [loadingFetch, setLoadingFetch] = useState(true);
@@ -38,8 +37,6 @@ const App = () => {
 		loading ? setLoadingFetch(true) : setLoadingFetch(false);
 		// eslint-disable-next-line
 	}, [loading]);
-
-	console.log(loadingFetch);
 
 	return loadingFetch ? <Loader /> : <Router />;
 };

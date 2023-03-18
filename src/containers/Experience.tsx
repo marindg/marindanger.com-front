@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 
 import { styles } from "../styles";
-import { experiences } from "../constants";
+// import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 import { education } from "../assets";
+import { IExperience } from "../state/reducer/experiencesReducer";
+import { useSelector } from "react-redux";
 
 const ExperienceCard = ({ experience }: any) => {
 	if (experience.education) {
@@ -114,6 +116,8 @@ const ExperienceCard = ({ experience }: any) => {
 };
 
 const Experience = () => {
+	const experiences = useSelector((state: any) => state.experiences);
+
 	return (
 		<>
 			<motion.div variants={textVariant(0.2)}>
@@ -123,7 +127,7 @@ const Experience = () => {
 
 			<div className="mt-20 flex flex-col">
 				<VerticalTimeline lineColor="var(--color-primary)">
-					{experiences.map((experience, index) => (
+					{experiences.map((experience: IExperience, index: number) => (
 						<ExperienceCard
 							key={`experience-${index}`}
 							experience={experience}

@@ -11,11 +11,11 @@ type PendingAction = ReturnType<GenericAsyncThunk["pending"]>;
 type FulfilledAction = ReturnType<GenericAsyncThunk["fulfilled"]>;
 type RejectedAction = ReturnType<GenericAsyncThunk["rejected"]>;
 
-interface LoadingState {
+export interface ILoading {
 	[requestName: string]: boolean;
 }
 
-const initialState: LoadingState = {};
+const initialState: ILoading = {};
 
 const loadingSlice = createSlice({
 	name: "loading",
