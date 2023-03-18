@@ -8,11 +8,15 @@ import { slideIn } from "../utils/motion";
 import { CosmonautCanvas } from "../components/canvas";
 import { paperPlane, loadingSvg } from "../assets";
 
+import { sendMailService } from "../services";
+
 const Contact = () => {
 	const [form, setForm] = useState({
-		name: "",
-		email: "",
-		message: "",
+		firstName: "",
+		lastName: "",
+		mail: "",
+		subject: "",
+		text: "",
 	});
 
 	const [loading, setLoading] = useState(false);
@@ -27,10 +31,16 @@ const Contact = () => {
 		});
 	};
 
-	const handleSubmit = () => {
-		console.log(form);
+	const handleSubmit = async (e: any) => {
+		const request = sendMailService(form);
+		try {
+			const response = await fetch(request.address, request.parameters);
 
-		setLoading(true);
+			return await response.json();
+		} catch (e: any) {
+			// return rejectWithValue(e);
+			console.log(e);
+		}
 	};
 
 	return (
@@ -48,8 +58,8 @@ const Contact = () => {
 					<label className="flex flex-col">
 						<input
 							type="text"
-							name="name"
-							value={form.name}
+							name="firstName"
+							value={form.firstName}
 							onChange={handleChange}
 							placeholder="Prénom"
 							className="bg-primary py-4 px-6 placeholder:text-tertiary text-white rounded-lg outline-none border-none font-medium"
@@ -59,8 +69,8 @@ const Contact = () => {
 					<label className="flex flex-col">
 						<input
 							type="email"
-							name="email"
-							value={form.email}
+							name="mail"
+							value={form.mail}
 							onChange={handleChange}
 							placeholder="Email"
 							className="bg-primary py-4 px-6 placeholder:text-tertiary text-white rounded-lg outline-none border-none font-medium"
@@ -69,8 +79,8 @@ const Contact = () => {
 					<label className="flex flex-col">
 						<textarea
 							rows={7}
-							name="message"
-							value={form.message}
+							name="text"
+							value={form.text}
 							onChange={handleChange}
 							placeholder="Message"
 							className="bg-primary py-4 px-6 placeholder:text-tertiary text-white rounded-lg outline-none border-none font-medium"
