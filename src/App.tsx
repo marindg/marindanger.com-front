@@ -2,7 +2,12 @@ import Router from "./router/Router";
 import { Loader } from "./components";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./state/store";
-import { getProjectThunk } from "./state/thunks";
+import {
+	getProjectThunk,
+	getExperienceThunk,
+	getSkillThunk,
+	getHomeTextThunk,
+} from "./state/thunks";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -11,11 +16,17 @@ const App = () => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
-		dispatch(getProjectThunk()).then((reponse: any) => {
-			if (reponse.meta.requestStatus === "fulfilled") {
-				setLoadingFetch(false);
-			}
-		});
+		// dispatch(getProjectThunk()).then((reponse: any) => {
+		// if (reponse.meta.requestStatus === "fulfilled") {
+		// setLoadingFetch(false);
+		// }
+		// });
+
+		// dispatch(getProjectThunk());
+		// dispatch(getExperienceThunk());
+		// dispatch(getHomeTextThunk());
+		dispatch(getSkillThunk());
+
 		// eslint-disable-next-line
 	}, [dispatch]);
 

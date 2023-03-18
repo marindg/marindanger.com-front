@@ -1,10 +1,10 @@
 import { Routes } from "../state/routes";
 
-export const getProjectService = () => {
+export const getHomeTextService = () => {
 	const hote = "http://api.marindanger.com";
 
 	// const address: RequestInfo = `${process.env.REACT_APP_URL_API}/projects/findAll`;
-	const address: RequestInfo = `${hote}${Routes.GET_PROJECTS}`;
+	const address: RequestInfo = `${hote}${Routes.GET_HOME_TEXT}`;
 
 	const parameters: RequestInit = {
 		method: "GET",

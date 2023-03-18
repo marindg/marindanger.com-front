@@ -3,34 +3,21 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { getProjectThunk } from "../thunks/projectsThunk";
 
 export interface IProject {
-	_id: string | null;
-	name: string | null;
-	shortDescription: string | null;
-	longDescription: string | null;
-	image: string | null;
-	color: string[] | null;
-	order: number | null;
-	startDate: Date | null;
-	endDate: Date | null;
-	client: IClient | null;
-	technologies: string[] | null;
-	visible: boolean | null;
-}
-
-export interface IClient {
+	_id: string;
 	name: string;
-	shortDescription: string;
+	shortDescription?: string | undefined;
 	longDescription: string;
-	image: string;
-	url: string;
+	imageUrl: string;
+	date?: string | undefined;
+	technologies: string[];
 }
 
 export interface IProjects {
-	allProjects: IProject[] | undefined;
+	projects: IProject[] | undefined;
 }
 
 export const initialState = {
-	Projects: undefined,
+	projects: undefined,
 };
 
 const projectsSlice = createSlice({
@@ -41,7 +28,7 @@ const projectsSlice = createSlice({
 		builder.addCase(
 			getProjectThunk.fulfilled,
 			(state, { payload }: PayloadAction<any>) => {
-				state.Projects = payload;
+				state.projects = payload.result;
 			}
 		);
 	},

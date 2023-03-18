@@ -41,13 +41,14 @@ const About = () => {
 					className="mt-4 text-secondary text-[17px] xl:max-w-screen-md leading-8"
 				>
 					Bonjour, je m'appelle Marin et suis développeur web français. Ce que
-					j'aime faire est de créer des choses, particulièrement des outils et
-					sites internet. Après des études à la Sorbonne, j'ai intégré un
-					cabinet d'audit avant de travailler dans des directions financières.
-					J'étais tellement absorbé par Excel que j'ai créé mes premières macros
-					et appris le langage Visual Basic. Aujourd'hui, après avoir approfondi
-					mes compétences et appris de nouveaux langages, j'ai décidé de changer
-					de métier afin de vivre de ma passion qu'est le code.
+					j'aime faire est de créer et développer des projets, particulièrement
+					des outils et sites internet. Après des études à la Sorbonne, j'ai
+					intégré un cabinet d'audit avant de travailler dans des directions
+					financières. J'étais tellement absorbé par Excel que j'ai créé mes
+					premières macros et appris le langage Visual Basic. Aujourd'hui, après
+					avoir approfondi mes compétences et appris de nouveaux langages, j'ai
+					décidé de changer de métier afin de vivre de ma passion qu'est le
+					code.
 				</motion.p>
 				<motion.div
 					variants={fadeIn("right", "", 0.1, 0.2)}

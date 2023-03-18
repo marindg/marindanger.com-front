@@ -1,10 +1,11 @@
 import { Routes } from "../state/routes";
 
-export const getProjectService = () => {
+export const getSkillService = () => {
 	const hote = "http://api.marindanger.com";
 
+	// console.log(process.env.REACT_APP_URL_API);
 	// const address: RequestInfo = `${process.env.REACT_APP_URL_API}/projects/findAll`;
-	const address: RequestInfo = `${hote}${Routes.GET_PROJECTS}`;
+	const address: RequestInfo = `${hote}${Routes.GET_SKILLS}`;
 
 	const parameters: RequestInit = {
 		method: "GET",
