@@ -26,10 +26,10 @@ const App = () => {
 	}));
 
 	useEffect(() => {
-		dispatch(getProjectThunk());
-		dispatch(getExperienceThunk());
-		dispatch(getHomeTextThunk());
-		dispatch(getSkillThunk());
+		// dispatch(getProjectThunk());
+		// dispatch(getExperienceThunk());
+		// dispatch(getHomeTextThunk());
+		// dispatch(getSkillThunk());
 		// eslint-disable-next-line
 	}, [dispatch]);
 
