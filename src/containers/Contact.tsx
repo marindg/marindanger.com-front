@@ -6,20 +6,20 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
 import { CosmonautCanvas } from "../components/canvas";
-import { paperPlane, loadingSvg } from "../assets";
+import { paperPlane } from "../assets";
 
 import { sendMailService } from "../services";
+import { LoaderSend, Modal } from "../components";
 
 const Contact = () => {
 	const [form, setForm] = useState({
-		firstName: "",
-		lastName: "",
-		mail: "",
-		subject: "",
-		text: "",
+		name: "name from front",
+		mail: "mail@gmail.com",
+		text: "text from front",
 	});
 
 	const [loading, setLoading] = useState(false);
+	const [openModal, setOpenModal] = useState(true);
 
 	const handleChange = (e: any) => {
 		const { target } = e;
@@ -31,15 +31,19 @@ const Contact = () => {
 		});
 	};
 
-	const handleSubmit = async (e: any) => {
+	const handleSubmit = async () => {
+		setLoading(true);
 		const request = sendMailService(form);
+		// console.log(request);
 		try {
-			const response = await fetch(request.address, request.parameters);
+			const response = await fetch(request.address, request.parameters).then(
+				() => setLoading(false)
+			);
 
-			return await response.json();
+			// return await response.json();
 		} catch (e: any) {
-			// return rejectWithValue(e);
 			console.log(e);
+			setLoading(false);
 		}
 	};
 
@@ -58,8 +62,8 @@ const Contact = () => {
 					<label className="flex flex-col">
 						<input
 							type="text"
-							name="firstName"
-							value={form.firstName}
+							name="name"
+							value={form.name}
 							onChange={handleChange}
 							placeholder="Prénom"
 							className="bg-primary py-4 px-6 placeholder:text-tertiary text-white rounded-lg outline-none border-none font-medium"
@@ -88,16 +92,12 @@ const Contact = () => {
 					</label>
 					<div
 						// type="submit"
-						className="max-w-[4em] self-end"
-						onClick={handleSubmit}
+						className="max-w-[4em] self-end "
+						onClick={() => handleSubmit()}
 					>
-						<div className="bg-primary hover:bg-[var(--grey-light)]  py-2 px-5 rounded-full shadow-card w-fit">
+						<div className="bg-primary hover:bg-[var(--grey-light)]  py-2 px-5 rounded-full shadow-card w-fit h-[2.7em]">
 							{loading ? (
-								<img
-									src={loadingSvg}
-									alt="Envoyer"
-									className="object-contain w-full h-full object-contain"
-								/>
+								<LoaderSend />
 							) : (
 								<img
 									src={paperPlane}
@@ -109,6 +109,12 @@ const Contact = () => {
 					</div>
 				</form>
 			</motion.div>
+
+			<Modal
+				open={openModal}
+				message="le message a bien été envoyé. Je vous recontacterai dans les plus brefs délais."
+				icon="error"
+			/>
 			<motion.div
 				variants={slideIn("right", "tween", 0.2, 0.85)}
 				className="xl:flex-1"

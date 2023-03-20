@@ -37,8 +37,14 @@ import useScrollspy from "./hooks/useScrollspy";
 import education from "./svg/education.svg";
 import paperPlane from "./svg/paperPlane.svg";
 import loadingSvg from "./svg/loading.svg";
+import validate from "./svg/validate.svg";
+import error from "./svg/error.svg";
+import information from "./svg/information.svg";
 
 export {
+	information,
+	validate,
+	error,
 	logo,
 	resume,
 	coding,

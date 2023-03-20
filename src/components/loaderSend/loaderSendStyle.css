@@ -1,0 +1,40 @@
+.loaderSend {
+	width: 3em;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.loaderSend_dot {
+	background: var(--color-tertiary);
+	border-radius: 50%;
+	animation: dotfade 1.4s infinite ease-in-out;
+	position: absolute;
+	width: 0.7em;
+	height: 0.7em;
+}
+
+.loaderSend_dot:nth-child(1) {
+	animation-delay: 0.4s;
+}
+.loaderSend_dot:nth-child(2) {
+	animation-delay: 0.85s;
+	left: 43%;
+}
+.loaderSend_dot:nth-child(3) {
+	animation-delay: 1.3s;
+	left: 86%;
+}
+
+@keyframes dotfade {
+	0%,
+	80%,
+	100% {
+		scale: 1;
+	}
+	40% {
+		scale: 0;
+	}
+}

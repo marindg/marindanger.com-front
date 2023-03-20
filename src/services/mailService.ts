@@ -1,10 +1,8 @@
 import { Routes } from "../state/routes";
 
 type IMail = {
-	firstName: string;
-	lastName: string;
+	name: string;
 	mail: string;
-	subject: string;
 	text: string;
 };
 
@@ -18,15 +16,14 @@ export const sendMailService = (mail: IMail) => {
 		headers: {
 			"Content-Type": "application/json",
 			body: JSON.stringify({
-				firstName: mail.firstName,
-				lastName: mail.lastName,
+				name: mail.name,
 				mail: mail.mail,
-				subject: mail.subject,
 				text: mail.text,
 			}),
-			mode: "no-cors",
+			// origin: "*",
 			Host: `${hote}`,
 		},
+		mode: "no-cors",
 		// mode: "no-cors",
 	};
 
