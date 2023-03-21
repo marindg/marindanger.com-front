@@ -17,12 +17,12 @@ const Router = () => {
 	return (
 		<BrowserRouter>
 			<div className="relative z-0 bg-gradient ">
-				{/* <Navbar /> */}
-				{/* <Home /> */}
-				{/* <About /> */}
-				{/* <Skill /> */}
-				{/* <Experience /> */}
-				{/* <Project /> */}
+				<Navbar />
+				<Home />
+				<About />
+				<Skill />
+				<Experience />
+				<Project />
 				<div className="relative z-0">
 					<Contact />
 					<StarsCanvas />

@@ -30,11 +30,11 @@ const ExperienceCard = ({ experience }: any) => {
 					boxShadow: "0 0 0 2px var(--color-secondary)",
 				}}
 				icon={
-					<div className="flex justify-center items-center w-full h-full">
+					<div className="flex justify-center items-center w-full h-full overflow-hidden">
 						<img
 							src={education}
 							alt={experience.company_name}
-							className="w-[80%] h-[80%] object-contain"
+							className="w-[80%] h-[80%] object-contain "
 						/>
 					</div>
 				}
@@ -79,11 +79,11 @@ const ExperienceCard = ({ experience }: any) => {
 					boxShadow: "0 0 0 2px var(--color-primary)",
 				}}
 				icon={
-					<div className="flex justify-center items-center w-full h-full">
+					<div className="flex justify-center items-center w-full h-full ">
 						<img
 							src={experience.icon}
 							alt={experience.company_name}
-							className="w-[80%] h-[80%] object-contain"
+							className="w-[80%] h-[80%] object-contain rounded m-[5px]"
 						/>
 					</div>
 				}
@@ -100,11 +100,11 @@ const ExperienceCard = ({ experience }: any) => {
 					</p>
 				</div>
 
-				<ul className="mt-5 list-disc ml-5 space-y-2">
+				<ul className="mt-5 list-disc ml-5 space-y-3">
 					{experience.points.map((point: any, index: number) => (
 						<li
 							key={`experience-point-${index}`}
-							className="text-[14px] pl-1 tracking-wider"
+							className="text-[14px] pl-1 tracking-wider text-secondary"
 						>
 							{point}
 						</li>

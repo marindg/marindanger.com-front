@@ -9,7 +9,7 @@ const Footer = () => {
 		<div
 			className={`${styles.paddingX} w-full flex items-center py-5  top-0 z-20 bg-primary`}
 		>
-			<div className="w-full flex justify-between items-center mx-auto">
+			<div className="w-full flex justify-between items-center mx-auto text-tertiary">
 				<p className="sm:text-[14px] text-[9px] pr-5 text-center">
 					marindanger.com
 				</p>

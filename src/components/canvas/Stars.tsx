@@ -8,7 +8,7 @@ const Stars = (props: any) => {
 	// const refStart = useRef() as React.MutableRefObject<HTMLInputElement>;
 	const refStart = useRef<THREE.Points>(null);
 	const [sphere] = useState(() =>
-		random.inSphere(new Float32Array(4500), { radius: 0.7 })
+		random.inSphere(new Float32Array(4500), { radius: 1 })
 	);
 
 	useFrame((state, delta) => {
