@@ -5,9 +5,13 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { IProject } from "../state/reducer/projectsReducer";
 
-const ProjectCard = (project: IProject, index: number) => {
+interface IProjectCardProps extends IProject {
+	index: number;
+}
+
+const ProjectCard = ({ index, ...project }: IProjectCardProps) => {
 	return (
-		<motion.div variants={fadeIn("left", "smooth", index * 5, 0.75)}>
+		<motion.div variants={fadeIn("left", "smooth", index * 0.9, 0.75)}>
 			<div className="bg-[var(--grey-light)] shadow-cardProject p-5 rounded-2xl sm:w-[360px] w-full max-w-xs min-h-max">
 				<div className="relative w-full h-[150px]">
 					<img
