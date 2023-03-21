@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -11,6 +11,8 @@ import { paperPlane } from "../assets";
 import { sendMailService } from "../services";
 import { LoaderSend, Modal } from "../components";
 
+import { modalProps } from "../components/modal/Modal";
+
 const Contact = () => {
 	const [form, setForm] = useState({
 		name: "name from front",
@@ -19,7 +21,11 @@ const Contact = () => {
 	});
 
 	const [loading, setLoading] = useState(false);
-	const [openModal, setOpenModal] = useState(true);
+	const [modal, setModal] = useState<modalProps>({
+		open: false,
+		message: "",
+		icon: undefined,
+	});
 
 	const handleChange = (e: any) => {
 		const { target } = e;
@@ -41,10 +47,29 @@ const Contact = () => {
 			);
 
 			// return await response.json();
+			setModal({
+				open: true,
+				message: "Merci, je vous recontacterai dans les plus brefs délais.",
+				icon: "validate",
+			});
 		} catch (e: any) {
 			console.log(e);
 			setLoading(false);
+			setModal({
+				open: true,
+				message:
+					"Désolé, une erreur s'est produite. Veuillez réessayer ultérieurement.",
+				icon: "error",
+			});
 		}
+
+		setTimeout(() => {
+			setModal({
+				open: false,
+				message: "",
+				icon: undefined,
+			});
+		}, 5000);
 	};
 
 	return (
@@ -110,17 +135,14 @@ const Contact = () => {
 				</form>
 			</motion.div>
 
-			<Modal
-				open={openModal}
-				message="le message a bien été envoyé. Je vous recontacterai dans les plus brefs délais."
-				icon="error"
-			/>
 			<motion.div
 				variants={slideIn("right", "tween", 0.2, 0.85)}
 				className="xl:flex-1"
 			>
 				<CosmonautCanvas />
 			</motion.div>
+
+			<Modal open={modal.open} message={modal.message} icon={modal.icon} />
 		</div>
 	);
 };
