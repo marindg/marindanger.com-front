@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -12,12 +12,13 @@ import { sendMailService } from "../services";
 import { LoaderSend, Modal } from "../components";
 
 import { modalProps } from "../components/modal/Modal";
+import { IMail } from "../services/mailService";
 
 const Contact = () => {
-	const [form, setForm] = useState({
-		name: "name from front",
-		mail: "mail@gmail.com",
-		text: "text from front",
+	const [form, setForm] = useState<IMail>({
+		name: "",
+		mail: "",
+		text: "",
 	});
 
 	const [loading, setLoading] = useState(false);
@@ -37,32 +38,58 @@ const Contact = () => {
 		});
 	};
 
+	const validEmail = (email: string) => {
+		const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+		return emailRegex.test(email);
+	};
+
+	const validName = (name: string) => {
+		const nameRegex = /^[a-z ,.'-]+$/i;
+		return nameRegex.test(name);
+	};
+
+	const validForm = (form: IMail) => {
+		return (
+			validName(form.name.trim()) &&
+			validEmail(form.mail) &&
+			form.text.trim().length > 20
+		);
+	};
+
 	const handleSubmit = async () => {
 		setLoading(true);
 		const request = sendMailService(form);
-		// console.log(request);
-		try {
-			const response = await fetch(request.address, request.parameters).then(
-				() => setLoading(false)
-			);
 
-			// return await response.json();
+		if (!validForm(form)) {
 			setModal({
 				open: true,
-				message: "Merci, je vous recontacterai dans les plus brefs délais.",
-				icon: "validate",
-			});
-		} catch (e: any) {
-			console.log(e);
-			setLoading(false);
-			setModal({
-				open: true,
-				message:
-					"Désolé, une erreur s'est produite. Veuillez réessayer ultérieurement.",
+				message: "Veuillez remplir correctement tous les champs.",
 				icon: "error",
 			});
+		} else {
+			try {
+				await fetch(request.address, request.parameters)
+					.then(() => setLoading(false))
+					.then(() =>
+						setModal({
+							open: true,
+							message:
+								"Merci, je vous recontacterai dans les plus brefs délais.",
+							icon: "validate",
+						})
+					)
+					.then(() => setForm({ name: "", mail: "", text: "" }));
+			} catch (e: any) {
+				// console.log(e);
+				setLoading(false);
+				setModal({
+					open: true,
+					message:
+						"Désolé, une erreur s'est produite. Veuillez réessayer ultérieurement.",
+					icon: "error",
+				});
+			}
 		}
-
 		setTimeout(() => {
 			setModal({
 				open: false,
@@ -70,6 +97,7 @@ const Contact = () => {
 				icon: undefined,
 			});
 		}, 5000);
+		setLoading(false);
 	};
 
 	return (
@@ -115,11 +143,7 @@ const Contact = () => {
 							className="bg-primary py-4 px-6 placeholder:text-tertiary text-white rounded-lg outline-none border-none font-medium"
 						/>
 					</label>
-					<div
-						// type="submit"
-						className="max-w-[4em] self-end "
-						onClick={() => handleSubmit()}
-					>
+					<div className="max-w-[4em] self-end " onClick={() => handleSubmit()}>
 						<div className="bg-primary hover:bg-[var(--grey-light)]  py-2 px-5 rounded-full shadow-card w-fit h-[2.7em]">
 							{loading ? (
 								<LoaderSend />
