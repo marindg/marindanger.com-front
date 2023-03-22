@@ -14,13 +14,13 @@ const Loader = () => {
 				<g transform="scale(15) translate(10, 10)">
 					<defs id="SvgjsDefs1058">
 						<linearGradient id="SvgjsLinearGradient1065">
-							<stop id="SvgjsStop1066" stop-color="#2d388a" offset="0"></stop>
-							<stop id="SvgjsStop1067" stop-color="#00aeef" offset="1"></stop>
+							<stop id="SvgjsStop1066" stopColor="#2d388a" offset="0"></stop>
+							<stop id="SvgjsStop1067" stopColor="#00aeef" offset="1"></stop>
 						</linearGradient>
 
 						<linearGradient id="SvgjsLinearGradient1068">
-							<stop id="SvgjsStop1069" stop-color="#2d388a" offset="0"></stop>
-							<stop id="SvgjsStop1070" stop-color="#00aeef" offset="1"></stop>
+							<stop id="SvgjsStop1069" stopColor="#2d388a" offset="0"></stop>
+							<stop id="SvgjsStop1070" stopColor="#00aeef" offset="1"></stop>
 						</linearGradient>
 					</defs>
 

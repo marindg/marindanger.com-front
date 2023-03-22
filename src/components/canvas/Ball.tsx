@@ -10,92 +10,17 @@ import {
 } from "@react-three/drei";
 
 import CanvasLoader from "./Loader";
+import React from "react";
 
-const Ball = (props: any) => {
+const Ball = React.memo((props: any) => {
 	const [decal] = useTexture([props.imgUrl]);
 
 	return (
-		<Float
-			speed={1.75}
-			rotationIntensity={1}
-			floatIntensity={2}
-			key={undefined}
-			attach={undefined}
-			args={undefined}
-			onUpdate={undefined}
-			castShadow={undefined}
-			receiveShadow={undefined}
-			visible={undefined}
-			type={undefined}
-			isGroup={undefined}
-			id={undefined}
-			uuid={undefined}
-			name={undefined}
-			parent={undefined}
-			modelViewMatrix={undefined}
-			normalMatrix={undefined}
-			matrixWorld={undefined}
-			matrixAutoUpdate={undefined}
-			matrixWorldAutoUpdate={undefined}
-			matrixWorldNeedsUpdate={undefined}
-			frustumCulled={undefined}
-			renderOrder={undefined}
-			animations={undefined}
-			userData={undefined}
-			customDepthMaterial={undefined}
-			customDistanceMaterial={undefined}
-			isObject3D={undefined}
-			onBeforeRender={undefined}
-			onAfterRender={undefined}
-			applyMatrix4={undefined}
-			applyQuaternion={undefined}
-			setRotationFromAxisAngle={undefined}
-			setRotationFromEuler={undefined}
-			setRotationFromMatrix={undefined}
-			setRotationFromQuaternion={undefined}
-			rotateOnAxis={undefined}
-			rotateOnWorldAxis={undefined}
-			rotateX={undefined}
-			rotateY={undefined}
-			rotateZ={undefined}
-			translateOnAxis={undefined}
-			translateX={undefined}
-			translateY={undefined}
-			translateZ={undefined}
-			localToWorld={undefined}
-			worldToLocal={undefined}
-			lookAt={undefined}
-			add={undefined}
-			remove={undefined}
-			removeFromParent={undefined}
-			clear={undefined}
-			getObjectById={undefined}
-			getObjectByName={undefined}
-			getObjectByProperty={undefined}
-			getObjectsByProperty={undefined}
-			getWorldPosition={undefined}
-			getWorldQuaternion={undefined}
-			getWorldScale={undefined}
-			getWorldDirection={undefined}
-			raycast={undefined}
-			traverse={undefined}
-			traverseVisible={undefined}
-			traverseAncestors={undefined}
-			updateMatrix={undefined}
-			updateMatrixWorld={undefined}
-			updateWorldMatrix={undefined}
-			toJSON={undefined}
-			clone={undefined}
-			copy={undefined}
-			addEventListener={undefined}
-			hasEventListener={undefined}
-			removeEventListener={undefined}
-			dispatchEvent={undefined}
-		>
+		<Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
 			<ambientLight intensity={1} />
 			<directionalLight position={[0, 0, 0.05]} />
 			<mesh castShadow receiveShadow scale={2.8}>
-				<icosahedronGeometry args={[1, 11]} />
+				<icosahedronGeometry args={[1, 9]} />
 				<meshStandardMaterial
 					color="rgba(0, 0, 35, 1)"
 					polygonOffset
@@ -112,7 +37,7 @@ const Ball = (props: any) => {
 			</mesh>
 		</Float>
 	);
-};
+});
 
 const BallCanvas = ({ icon }: any) => {
 	return (

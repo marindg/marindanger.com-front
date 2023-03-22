@@ -5,6 +5,7 @@ import rootReducer from "./reducer";
 
 const store = configureStore({
 	reducer: rootReducer,
+	devTools: false,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

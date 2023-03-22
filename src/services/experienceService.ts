@@ -1,7 +1,7 @@
 import { Routes } from "../state/routes";
 
 export const getExperienceService = () => {
-	const hote = "http://api.marindanger.com";
+	const hote = "https://api.marindanger.com";
 
 	// const address: RequestInfo = `${process.env.REACT_APP_URL_API}/projects/findAll`;
 	const address: RequestInfo = `${hote}${Routes.GET_EXPERIENCES}`;

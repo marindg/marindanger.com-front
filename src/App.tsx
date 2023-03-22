@@ -8,7 +8,7 @@ import {
 	getSkillThunk,
 	getHomeTextThunk,
 } from "./state/thunks";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Actions } from "./state/actions";
 
@@ -38,7 +38,13 @@ const App = () => {
 		// eslint-disable-next-line
 	}, [loading]);
 
-	return loadingFetch ? <Loader /> : <Router />;
+	return loadingFetch ? (
+		<Loader />
+	) : (
+		<Suspense fallback={<Loader />}>
+			<Router />
+		</Suspense>
+	);
 };
 
 export default App;

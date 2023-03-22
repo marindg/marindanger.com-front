@@ -28,3 +28,5 @@ export const services = [
 		icon: evaluation,
 	},
 ];
+
+export const homeSubText = "Developpeur Fullstack.";

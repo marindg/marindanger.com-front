@@ -1,7 +1,7 @@
 import { Routes } from "../state/routes";
 
 export const getSkillService = () => {
-	const hote = "http://api.marindanger.com";
+	const hote = "https://api.marindanger.com";
 	const address: RequestInfo = `${hote}${Routes.GET_SKILLS}`;
 
 	const parameters: RequestInit = {

@@ -7,7 +7,7 @@ export type IMail = {
 };
 
 export const sendMailService = (mail: IMail) => {
-	const hote = "http://api.marindanger.com";
+	const hote = "https://api.marindanger.com";
 
 	const address: RequestInfo = `${hote}${Routes.SEND_MAIL}`;
 
